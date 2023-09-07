@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Setup for Control Plane (Master) servers
+cd k8s
 
 set -euxo pipefail
 
@@ -44,3 +45,6 @@ kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
 
 kubectl create -f custom-resources.yaml
+
+# Saving command to join worker nodes
+kubeadm token create --print-join-command >join.sh

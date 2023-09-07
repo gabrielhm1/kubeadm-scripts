@@ -1,6 +1,9 @@
 #!/bin/bash
 #
 # Common setup for all servers (Control Plane and Nodes)
+mkdir k8s
+cd k8s
+# snap install kubeadm --classic
 
 set -euxo pipefail
 
@@ -18,7 +21,7 @@ sudo apt-get update -y
 
 # Install CRI-O Runtime
 
-OS="xUbuntu_22.04"
+OS="xUbuntu_20.04"
 
 VERSION="1.28"
 

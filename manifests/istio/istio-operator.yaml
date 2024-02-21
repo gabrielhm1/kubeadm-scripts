@@ -1,0 +1,17 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: export-node-name
+  namespace: istio-system
+spec:
+  meshConfig:
+    enableTracing: true
+    defaultConfig:
+      tracing:
+        custom_tags:
+          node_name:
+            environment:
+              name: ISTIO_META_NODE_NAME 
+          pod_name: 
+            environment:
+              name: POD_NAME    
